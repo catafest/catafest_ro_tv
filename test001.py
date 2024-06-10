@@ -44,8 +44,10 @@ def main():
     app = QApplication(sys.argv)
     window = MainWindow()
     # url_to_load = "https://m.cinemagia.ro/index.php?_action=getMoreMoviesOnTV&from_date=08.06.2024&hour=22&controller=MovieOnTV2"
-    url_to_load = window.generate_current_url()  # Generăm URL-ul cu data și ora curentă
-    json_content = window.parse_url(url_to_load)  # Încărcați URL-ul și extrageți conținutul JSON
+    # create the URL-ul by date and hour
+    url_to_load = window.generate_current_url()  
+    # Load URL-ul and get JSON
+    json_content = window.parse_url(url_to_load)  
     if json_content:
         extracted_html = window.extract_html_from_json(json_content)
         if extracted_html:
